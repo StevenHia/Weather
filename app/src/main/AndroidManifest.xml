@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
-        android:name=".apps.WeatherApplication"
+        android:name=".WeatherApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -19,7 +19,7 @@
         android:theme="@style/Theme.OpenWeather"
         tools:targetApi="31">
         <activity
-            android:name=".LoginActivity"
+            android:name=".presentation.ui.screen.authentication.LoginActivity"
             android:exported="true"
             android:label="@string/title_activity_login"
             android:theme="@style/Theme.OpenWeather">
@@ -31,7 +31,7 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.ui.MainActivity"
             android:exported="false"
             android:label="@string/app_name"
             android:theme="@style/Theme.OpenWeather">

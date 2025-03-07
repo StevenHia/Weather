@@ -2,7 +2,6 @@ package com.steven.developer.openweather.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.steven.developer.openweather.model.*
 import com.steven.developer.openweather.domain.usecase.forecast.AddCityToDbUseCase
 import com.steven.developer.openweather.domain.usecase.forecast.AddForecastToDbUseCase
 import com.steven.developer.openweather.domain.usecase.forecast.GetForecastFromDbUseCase
@@ -10,7 +9,9 @@ import com.steven.developer.openweather.domain.usecase.forecast.GetForecastUseCa
 import com.steven.developer.openweather.domain.usecase.forecast.UpdateCityDbUseCase
 import com.steven.developer.openweather.domain.usecase.forecast.UpdateForecastDbUseCase
 import com.steven.developer.openweather.domain.usecase.location.GetLocationUseCase
-import com.steven.developer.openweather.presentation.ui.home.HomeState
+import com.steven.developer.openweather.model.City
+import com.steven.developer.openweather.model.Forecast
+import com.steven.developer.openweather.presentation.ui.screen.home.HomeState
 import com.steven.developer.openweather.utils.ExceptionTitles
 import com.steven.developer.openweather.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -74,6 +75,7 @@ class HomeViewModel @Inject constructor(
             is Resource.Error -> {
                 _homeForecastState.value = HomeState.Error(result.message)
             }
+            else -> {}
         }
     }
 

@@ -1,4 +1,4 @@
-package com.steven.developer.openweather.data.local.weather.entity
+package com.steven.developer.openweather.data.local.profile.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

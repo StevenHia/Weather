@@ -2,7 +2,7 @@ package com.steven.developer.openweather.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.steven.developer.openweather.data.local.weather.entity.UserEntity
+import com.steven.developer.openweather.data.local.profile.entity.UserEntity
 import com.steven.developer.openweather.domain.usecase.LoginUseCase
 import com.steven.developer.openweather.domain.usecase.RegisterUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel

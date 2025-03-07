@@ -1,4 +1,4 @@
-package com.steven.developer.openweather
+package com.steven.developer.openweather.presentation.ui.screen.authentication
 
 import android.content.Intent
 import android.os.Bundle
@@ -31,7 +31,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
-import com.steven.developer.openweather.data.local.weather.entity.UserEntity
+import com.steven.developer.openweather.data.local.profile.entity.UserEntity
+import com.steven.developer.openweather.presentation.ui.MainActivity
 import com.steven.developer.openweather.presentation.ui.theme.OpenWeatherTheme
 import com.steven.developer.openweather.presentation.viewmodel.AuthenticationViewModel
 import dagger.hilt.android.AndroidEntryPoint

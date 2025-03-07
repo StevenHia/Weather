@@ -1,4 +1,4 @@
-package com.steven.developer.openweather.apps
+package com.steven.developer.openweather
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

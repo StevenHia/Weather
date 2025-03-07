@@ -1,35 +1,29 @@
 package com.steven.developer.openweather.presentation.viewmodel
 
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.steven.developer.openweather.data.local.weather.entity.UserEntity
-import com.steven.developer.openweather.domain.usecase.GetUserByUsernameUseCase
+import com.steven.developer.openweather.data.local.profile.entity.UserEntity
+import com.steven.developer.openweather.domain.usecase.GetUserByIdUseCase
 import com.steven.developer.openweather.domain.usecase.UpdateUserUseCase
+import com.steven.developer.openweather.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
-    private val getUserByUsernameUseCase: GetUserByUsernameUseCase,
+    private val getUserUseCase: GetUserByIdUseCase,
     private val updateUserUseCase: UpdateUserUseCase
 ) : ViewModel() {
-    private val _profileState = MutableStateFlow<ProfileState>(ProfileState.Loading)
-    val profileState = _profileState.asStateFlow()
+    private var _profileState = mutableStateOf<Resource<UserEntity>>(Resource.StandBy())
+    val profileState: State<Resource<UserEntity>> = _profileState
 
-    fun loadProfile(userId: Int) {
-        _profileState.value = ProfileState.Loading
+    fun loadProfile(userId: Int) = viewModelScope.launch {
         viewModelScope.launch {
-            // Assuming you have a way to map userId to username
-            // For this example, let's say it's just an index
-            val user =
-                getUserByUsernameUseCase("user")
-            if (user != null) {
-                _profileState.value = ProfileState.Success(user)
-            } else {
-                _profileState.value = ProfileState.Error("User not found")
+            getUserUseCase(userId).collect { resource ->
+                _profileState.value = resource
             }
         }
     }
@@ -37,13 +31,7 @@ class ProfileViewModel @Inject constructor(
     fun updateProfile(user: UserEntity) {
         viewModelScope.launch {
             updateUserUseCase(user)
-            _profileState.value = ProfileState.Success(user)
+            _profileState.value = Resource.Success(user)
         }
     }
-}
-
-sealed class ProfileState {
-    data object Loading : ProfileState()
-    data class Success(val user: UserEntity) : ProfileState()
-    data class Error(val message: String) : ProfileState()
 }

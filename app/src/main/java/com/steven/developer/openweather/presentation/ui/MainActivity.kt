@@ -1,4 +1,4 @@
-package com.steven.developer.openweather
+package com.steven.developer.openweather.presentation.ui
 
 import android.Manifest
 import android.os.Bundle
@@ -8,9 +8,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Home
@@ -22,16 +19,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.PreviewScreenSizes
-import com.steven.developer.openweather.presentation.ui.home.HomePage
-import com.steven.developer.openweather.presentation.ui.profile.ProfilePage
-import com.steven.developer.openweather.presentation.viewmodel.HomeViewModel
+import com.steven.developer.openweather.presentation.ui.screen.home.HomePage
+import com.steven.developer.openweather.presentation.ui.screen.profile.ProfilePage
 import com.steven.developer.openweather.presentation.ui.theme.OpenWeatherTheme
+import com.steven.developer.openweather.presentation.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

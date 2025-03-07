@@ -1,4 +1,4 @@
-package com.steven.developer.openweather.presentation.ui.home
+package com.steven.developer.openweather.presentation.ui.screen.home
 
 import com.steven.developer.openweather.model.*
 
